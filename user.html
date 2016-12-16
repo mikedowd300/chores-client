@@ -6,19 +6,16 @@
     <title>Do Your Chores!</title>
   </head>
   <body>
-    <h1>See Your Chores</h1>
-    <table class="bordered highlight col s6">
+    <h1>{{user.name}}'s Chores</h1>
+    <table class="col s4">
         <thead>
           <tr>
-              <th data-field="name">Name</th>
+              <th data-field="chore">Chore</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><a href="/user.html?id=1">Mike Dowd's Chores</a></td>
-          </tr>
-          <tr>
-            <td><a href="/user.html?id=2">Mike Roque's Chores</a></td>
+            <td>{{chore.description}}</td>
           </tr>
         </tbody>
       </table>
