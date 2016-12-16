@@ -6,7 +6,8 @@ $(document).ready(function () {
   $.get(`${API_URL}/user/${id}`, function(data) {
     console.log(data.name);
     $('.user-name').text(`${data.name}'s Chores`);
-  });
+  })
+  .then(getChores(id));
 });
 
 function parseQuery(qstr) {
@@ -17,15 +18,21 @@ function getUserInfo(id) {
   return $.get(`${API_URL}/user/${id}`);
 }
 
-function getStickers(id) {
-  $.get(`${API_URL}/user/${id}/chore`);
+function getChores(id) {
+  $.get(`${API_URL}/user/${id}/chore`, function(data){
+    console.log(data[0]);
+      data.forEach(function(obj){
+        $(`<p class="chore-description">${obj.description}</p>`).appendTo('.chores');
+      })
+  });
 }
 
 function addUserInfoToPage(user) {
 
 }
 
-function addStickers(stickers) {
+function addChore(chores) {
+
 }
 
 function weSuck() {
